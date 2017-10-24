@@ -8,7 +8,7 @@ const decrementAction = () => ({
     type: decrementCounter
 })
 
-export default {
+export {
     incrementAction,
     decrementAction
 }
