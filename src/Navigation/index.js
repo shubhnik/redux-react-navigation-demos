@@ -15,7 +15,7 @@ class AppNavigation extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(`****MPSP${JSON.stringify(state)}`)
+    console.log(`********HELLONAV${JSON.stringify(state)}`)
     return ({
         navigationState: state.NavigationReducer
     })

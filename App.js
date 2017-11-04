@@ -12,15 +12,25 @@ import {
   View
 } from 'react-native';
 import { Provider } from 'react-redux'
-import store from './store'
+import { PersistGate } from 'redux-persist/es/integration/react'
+// import store from './store'
 import AppNavigation from './src/Navigation'
+import configureStore from './store'
+
+const { store, persistor } = configureStore()
+console.log(`********PERSIST${JSON.stringify(store.getState())}`)
 
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <AppNavigation />
+        <PersistGate
+            loading={<Text>Loading...</Text>}
+            persistor={persistor}>
+          <AppNavigation />
+        </PersistGate>
+        {/*<AppNavigation />*/}
       </Provider>
     );
   }
