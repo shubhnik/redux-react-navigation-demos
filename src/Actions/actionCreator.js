@@ -8,7 +8,17 @@ const decrementAction = () => ({
     type: decrementCounter
 })
 
+const login = () => ({
+    type: 'LOGIN'
+})
+
+const logout = () => ({
+    type: 'LOGOUT'
+})
+
 export {
     incrementAction,
-    decrementAction
+    decrementAction,
+    login,
+    logout
 }

@@ -18,8 +18,7 @@ import AppNavigation from './src/Navigation'
 import configureStore from './store'
 
 const { store, persistor } = configureStore()
-console.log(`********PERSIST${JSON.stringify(store.getState())}`)
-
+console.log(`*******STORESTATE${JSON.stringify(store.getState())}`)
 
 export default class App extends Component {
   render() {
@@ -27,30 +26,11 @@ export default class App extends Component {
       <Provider store={store}>
         <PersistGate
             loading={<Text>Loading...</Text>}
-            persistor={persistor}>
+            persistor={persistor}
+        >
           <AppNavigation />
         </PersistGate>
-        {/*<AppNavigation />*/}
       </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});

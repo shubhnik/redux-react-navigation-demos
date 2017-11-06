@@ -20,12 +20,13 @@ export default class Screen1View extends Component {
     }
 
     render() {
-        const {counterCount, incrementAction, decrementAction} = this.props
+        const {counterCount, incrementAction, decrementAction, counterString} = this.props
         return(
             <View
                 style={{flex:1, backgroundColor:'yellowgreen', justifyContent:'center', alignItems:'center'}}
             >
                 <Text>{counterCount}</Text>
+                <Text>{counterString}</Text>
                 <View style={{height:100, flexDirection:'row'}}>
                     <TouchableOpacity 
                         onPress={()=>incrementAction()}
