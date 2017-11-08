@@ -1,24 +1,24 @@
-import {incrementCounter, decrementCounter} from './actionTypes'
+import {
+  incrementCounter,
+  decrementCounter,
+  Login,
+  Logout
+} from "./actionTypes";
 
 const incrementAction = () => ({
-    type: incrementCounter
-})
+  type: incrementCounter
+});
 
 const decrementAction = () => ({
-    type: decrementCounter
-})
+  type: decrementCounter
+});
 
 const login = () => ({
-    type: 'LOGIN'
-})
+  type: Login
+});
 
 const logout = () => ({
-    type: 'LOGOUT'
-})
+  type: Logout
+});
 
-export {
-    incrementAction,
-    decrementAction,
-    login,
-    logout
-}
+export { incrementAction, decrementAction, login, logout };

@@ -1,17 +1,17 @@
-import {connect} from 'react-redux'
-import Screen1View from '../Components/screen1View'
-import {incrementAction, decrementAction} from '../Actions/actionCreator'
+import { connect } from "react-redux";
+import Screen1View from "../Components/screen1View";
+import { incrementAction, decrementAction } from "../Actions/actionCreator";
 
 const mapStateToProps = state => ({
-    counterCount: state.CounterReducer.counter,
-    counterString: state.CounterReducer.counterString
-})
+  counterCount: state.CounterReducer.counter,
+  counterString: state.CounterReducer.counterString
+});
 
 const mapDispatchToProps = {
-    incrementAction,
-    decrementAction
-}
+  incrementAction,
+  decrementAction
+};
 
-const Screen1 = connect(mapStateToProps, mapDispatchToProps)(Screen1View)
+const Screen1 = connect(mapStateToProps, mapDispatchToProps)(Screen1View);
 
 export default Screen1;

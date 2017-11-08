@@ -1,9 +1,6 @@
 const incrementCounter = "INCREMENT_COUNTER";
 const decrementCounter = "DECREMENT_COUNTER";
-const login = "LOGIN"
+const Login = "LOGIN";
+const Logout = "LOGOUT";
 
-export {
-    incrementCounter,
-    decrementCounter,
-    login
-}
+export { incrementCounter, decrementCounter, Login, Logout };
