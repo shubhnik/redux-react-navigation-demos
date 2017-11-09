@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import { NavigationActions } from "react-navigation";
+import { connect } from "react-redux";
+import { incrementAction, decrementAction } from "../Actions/actionCreator";
 
-export default class Screen1View extends Component {
+class Screen1View extends Component {
   static navigationOptions = {
     title: "Screen1",
     gesturesEnabled: false,
@@ -73,3 +75,17 @@ export default class Screen1View extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  counterCount: state.CounterReducer.counter,
+  counterString: state.CounterReducer.counterString
+});
+
+const mapDispatchToProps = {
+  incrementAction,
+  decrementAction
+};
+
+const Screen1 = connect(mapStateToProps, mapDispatchToProps)(Screen1View);
+
+export default Screen1;

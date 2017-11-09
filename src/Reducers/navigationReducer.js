@@ -6,6 +6,7 @@ import { Login, Logout } from "../Actions/actionTypes";
 const ActionForLoggedOut = AppNavigator.router.getActionForPathAndParams(
   "login"
 );
+
 const ActionForLoggedIn = AppNavigator.router.getActionForPathAndParams(
   "screen1"
 );

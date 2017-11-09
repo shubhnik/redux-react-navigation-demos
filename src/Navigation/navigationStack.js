@@ -1,12 +1,12 @@
 import { StackNavigator } from "react-navigation";
 
-import Screen1 from "../Containers/screen1";
+import Screen1 from "../Components/screen1";
 import Logout from "../Components/screen2";
-import login from "../Components/LoginScreen";
+import Login from "../Components/LoginScreen";
 
 const navigator = StackNavigator({
   login: {
-    screen: login
+    screen: Login
   },
   screen1: {
     screen: Screen1

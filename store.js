@@ -29,10 +29,10 @@ const reducer = {
   loginReducer
 };
 
-// This will persist all the reducers, but I don't want to persist navigation state, so insted will use persistReducer.
+// This will persist all the reducers, but I don't want to persist navigation state, so instead will use persistReducer.
 // const rootReducer = persistCombineReducers(config, reducer)
 
-// We are only persisting the counterReducer
+// We are only persisting the counterReducer and loginRducer
 const CounterReducer = persistReducer(config, counterReducer);
 const LoginReducer = persistReducer(config1, loginReducer);
 
