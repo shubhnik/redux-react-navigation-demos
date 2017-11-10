@@ -1,14 +1,11 @@
-import {incrementCounter, decrementCounter} from './actionTypes'
+import { incrementCounter, decrementCounter } from "./actionTypes";
 
 const incrementAction = () => ({
-    type: incrementCounter
-})
+  type: incrementCounter
+});
 
 const decrementAction = () => ({
-    type: decrementCounter
-})
+  type: decrementCounter
+});
 
-export {
-    incrementAction,
-    decrementAction
-}
+export { incrementAction, decrementAction };
