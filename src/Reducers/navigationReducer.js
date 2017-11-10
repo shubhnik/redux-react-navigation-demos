@@ -11,39 +11,39 @@ const ActionForLoggedIn = AppNavigator.router.getActionForPathAndParams(
   "screen1"
 );
 
-const initialStateForLoggedOut = AppNavigator.router.getStateForAction(
+const stateForLoggedOut = AppNavigator.router.getStateForAction(
   ActionForLoggedOut
 );
-const initialStateForLoggedIn = AppNavigator.router.getStateForAction(
+const stateForLoggedIn = AppNavigator.router.getStateForAction(
   ActionForLoggedIn
 );
 
-const initialState = { initialStateForLoggedOut, initialStateForLoggedIn };
+const initialState = { stateForLoggedOut, stateForLoggedIn };
 
 const navigationReducer = (state = initialState, action) => {
   switch (action.type) {
     case "@@redux/INIT":
       return {
         ...state,
-        initialStateForLoggedIn: AppNavigator.router.getStateForAction(
-          AppNavigator.router.getActionForPathAndParams("screen1"),
-          state.initialStateForLoggedOut
+        stateForLoggedIn: AppNavigator.router.getStateForAction(
+          ActionForLoggedIn,
+          stateForLoggedOut
         )
       };
 
     case Login:
       return {
         ...state,
-        initialStateForLoggedIn: AppNavigator.router.getStateForAction(
-          AppNavigator.router.getActionForPathAndParams("screen1"),
-          state.initialStateForLoggedOut
+        stateForLoggedIn: AppNavigator.router.getStateForAction(
+          ActionForLoggedIn,
+          stateForLoggedOut
         )
       };
 
     case Logout:
       return {
         ...state,
-        initialStateForLoggedOut: AppNavigator.router.getStateForAction(
+        stateForLoggedOut: AppNavigator.router.getStateForAction(
           NavigationActions.reset({
             index: 0,
             actions: [NavigationActions.navigate({ routeName: "login" })]
@@ -64,9 +64,9 @@ const navigationReducer = (state = initialState, action) => {
     default:
       return {
         ...state,
-        initialStateForLoggedIn: AppNavigator.router.getStateForAction(
+        stateForLoggedIn: AppNavigator.router.getStateForAction(
           action,
-          state.initialStateForLoggedIn
+          state.stateForLoggedIn
         )
       };
   }

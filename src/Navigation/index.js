@@ -24,13 +24,11 @@ class AppNavigation extends Component {
 
   render() {
     const { navigationState, dispatch, isLoggedIn } = this.props;
-    const initialState = isLoggedIn
-      ? navigationState.initialStateForLoggedIn
-      : navigationState.initialStateForLoggedOut;
+    const state = isLoggedIn
+      ? navigationState.stateForLoggedIn
+      : navigationState.stateForLoggedOut;
     return (
-      <NavigationStack
-        navigation={addNavigationHelpers({ dispatch, state: initialState })}
-      />
+      <NavigationStack navigation={addNavigationHelpers({ dispatch, state })} />
     );
   }
 }
