@@ -15,8 +15,9 @@ class AppNavigation extends Component {
 
   onBackPress = () => {
     const { dispatch, navigationState } = this.props;
-    if (navigationState.index === 0) {
+    if (navigationState.stateForLoggedIn.index <= 1) {
       BackHandler.exitApp();
+      return;
     }
     dispatch(NavigationActions.back());
     return true;
