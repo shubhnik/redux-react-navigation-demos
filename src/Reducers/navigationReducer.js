@@ -14,6 +14,7 @@ const ActionForLoggedIn = AppNavigator.router.getActionForPathAndParams(
 const stateForLoggedOut = AppNavigator.router.getStateForAction(
   ActionForLoggedOut
 );
+
 const stateForLoggedIn = AppNavigator.router.getStateForAction(
   ActionForLoggedIn
 );
