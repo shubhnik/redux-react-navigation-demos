@@ -27,4 +27,5 @@ const navigator = StackNavigator({
   }
 });
 
+export {Tabs}
 export default navigator;
