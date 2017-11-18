@@ -56,7 +56,7 @@ const navigationReducer = (state = initialState, action) => {
            this one, what about you?
         
         case 'LOGOUT':
-            nextState = { ...state, initialStateForLoggedIn, initialStateForLoggedOut}
+            nextState = { ...state, stateForLoggedIn, stateForLoggedOut}
             break;
 
         */
