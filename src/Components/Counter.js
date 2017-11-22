@@ -2,21 +2,16 @@ import React, { Component } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import { NavigationActions } from "react-navigation";
 import { connect } from "react-redux";
-import { incrementAction, decrementAction } from "../Actions/actionCreator";
+import {
+  incrementAction,
+  decrementAction,
+  navigateToLogoutScreen
+} from "../Actions/actionCreator";
+import { Tabs } from "../Navigation/navigationStack";
 
-class Screen1View extends Component {
-  static navigationOptions = {
-    title: "Screen1",
-    gesturesEnabled: false,
-    headerLeft: null
-  };
-
+class CounterView extends Component {
   navigate = () => {
-    const navigateToScreen2 = NavigationActions.navigate({
-      routeName: "screen2",
-      params: { name: "Shubhnik" }
-    });
-    this.props.navigation.dispatch(navigateToScreen2);
+    this.props.navigateToLogoutScreen();
   };
 
   render() {
@@ -67,8 +62,8 @@ class Screen1View extends Component {
           }}
           onPress={this.navigate}
         >
-          <Text style={{ fontSize: 23, fontWeight: "600", color: "white" }}>
-            Screen2
+          <Text style={{ fontSize: 17, fontWeight: "400", color: "white" }}>
+            Navigate to the last tab programmatically: "Logout"
           </Text>
         </TouchableOpacity>
       </View>
@@ -83,9 +78,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   incrementAction,
-  decrementAction
+  decrementAction,
+  navigateToLogoutScreen
 };
 
-const Screen1 = connect(mapStateToProps, mapDispatchToProps)(Screen1View);
+const Counter = connect(mapStateToProps, mapDispatchToProps)(CounterView);
 
-export default Screen1;
+export default Counter;

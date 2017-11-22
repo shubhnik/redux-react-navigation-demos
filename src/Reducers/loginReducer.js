@@ -1,4 +1,4 @@
-import { Login, Logout } from "../Actions/actionTypes";
+import { Login, Logout, RegisterSuccess } from "../Actions/actionTypes";
 
 const initialState = { isLoggedIn: false };
 
@@ -9,6 +9,9 @@ const loginReducer = (state = initialState, action) => {
 
     case Logout:
       return { ...state, isLoggedIn: false };
+
+    case RegisterSuccess:
+      return { ...state, isLoggedIn: true };
 
     default:
       return state;

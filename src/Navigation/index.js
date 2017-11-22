@@ -25,6 +25,9 @@ class AppNavigation extends Component {
 
   render() {
     const { navigationState, dispatch, isLoggedIn } = this.props;
+    console.log(
+      `***********8NavigationSteTE${JSON.stringify(navigationState)}`
+    );
     const state = isLoggedIn
       ? navigationState.stateForLoggedIn
       : navigationState.stateForLoggedOut;

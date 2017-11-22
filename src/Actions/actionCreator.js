@@ -2,7 +2,10 @@ import {
   incrementCounter,
   decrementCounter,
   Login,
-  Logout
+  Logout,
+  Register,
+  RegisterSuccess,
+  NavigateToLogoutScreen
 } from "./actionTypes";
 
 const incrementAction = () => ({
@@ -21,4 +24,24 @@ const logout = () => ({
   type: Logout
 });
 
-export { incrementAction, decrementAction, login, logout };
+const register = () => ({
+  type: Register
+});
+
+const registerSuccess = () => ({
+  type: RegisterSuccess
+});
+
+const navigateToLogoutScreen = () => ({
+  type: NavigateToLogoutScreen
+});
+
+export {
+  incrementAction,
+  decrementAction,
+  login,
+  logout,
+  register,
+  registerSuccess,
+  navigateToLogoutScreen
+};

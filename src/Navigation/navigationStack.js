@@ -1,17 +1,33 @@
 import { StackNavigator, TabNavigator } from "react-navigation";
 
-import Screen1 from "../Components/screen1";
-import Logout from "../Components/screen2";
+import Counter from "../Components/Counter";
+import Logout from "../Components/Logout";
 import Login from "../Components/LoginScreen";
 import Feed from "../Components/Feed";
 import Notification from "../Components/Notification";
+import Signup from "../Components/SignupScreen";
 
-const Tabs = TabNavigator({
+export const Tabs = TabNavigator({
   feed: {
-    screen: Feed
+    screen: Feed,
+    navigationOptions: {
+      tabBarLabel: "Feed",
+      title: "Feed"
+    }
+  },
+  counter: {
+    screen: Counter,
+    navigationOptions: {
+      tabBarLabel: "Counter",
+      title: "Counter"
+    }
   },
   logout: {
-    screen: Logout
+    screen: Logout,
+    navigationOptions: {
+      tabBarLabel: "Logout",
+      title: "Logout"
+    }
   }
 });
 
@@ -19,11 +35,18 @@ const navigator = StackNavigator({
   login: {
     screen: Login
   },
-  screen1: {
-    screen: Screen1
+  signup: {
+    screen: Signup,
+    navigationOptions: {
+      title: "Register"
+    }
   },
-  screen2: {
-    screen: Tabs
+  mainScreens: {
+    screen: Tabs,
+    navigationOptions: {
+      gesturesEnabled: false,
+      headerLeft: null
+    }
   }
 });
 

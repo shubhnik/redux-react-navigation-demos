@@ -1,19 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import { login } from "../Actions/actionCreator";
+import { login, registerSuccess } from "../Actions/actionCreator";
 
 class SignupView extends Component {
-  static navigationOptions = {
-    title: "Register"
-  };
   render() {
     return (
       <View style={styles.root}>
-        <Text style={{ color: "white", fontSize: 20 }}>SINGUP</Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => this.props.login()}
+          onPress={() => this.props.registerSuccess()}
         >
           <Text>Register</Text>
         </TouchableOpacity>
@@ -22,8 +18,9 @@ class SignupView extends Component {
   }
 }
 
-mapDispatchToProps = dispatch => {
-  login;
+mapDispatchToProps = {
+  login,
+  registerSuccess
 };
 
 const Signup = connect(null, mapDispatchToProps)(SignupView);

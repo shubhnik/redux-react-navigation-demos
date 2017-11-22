@@ -4,9 +4,6 @@ import { connect } from "react-redux";
 import { logout } from "../Actions/actionCreator";
 
 class LogoutScreen extends Component {
-  static navigationOptions = {
-    title: "Screen2"
-  };
   render() {
     return (
       <View
@@ -17,7 +14,7 @@ class LogoutScreen extends Component {
           alignItems: "center"
         }}
       >
-        <Text>{this.props.navigation.state.params.name}</Text>
+        {/* <Text>{this.props.navigation.state.params.name}</Text> */}
         <TouchableOpacity
           onPress={this.props.logout}
           style={styles.touchableStyles}

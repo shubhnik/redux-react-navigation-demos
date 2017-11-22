@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { NavigationActions } from "react-navigation";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
-import { login } from "../Actions/actionCreator";
+import { login, register } from "../Actions/actionCreator";
 
 class LoginScreen extends Component {
   static navigationOptions = {
     title: "Login"
   };
+
+  navigateToRegisterScreen = () => {
+    this.props.register();
+  };
+
   render() {
     return (
       <View style={styles.rootContainer}>
@@ -27,6 +33,13 @@ class LoginScreen extends Component {
         >
           <Text style={{ color: "white", fontSize: 22 }}>Login</Text>
         </TouchableOpacity>
+        <Text
+          onPress={this.navigateToRegisterScreen}
+          textDecorationLine="underline"
+          style={{ fontSize: 18, fontWeight: "500", marginTop: 10 }}
+        >
+          Register
+        </Text>
       </View>
     );
   }
@@ -54,7 +67,8 @@ const styles = StyleSheet.create({
 });
 
 const mapDispatchToProps = {
-  login
+  login,
+  register
 };
 
 const Login = connect(null, mapDispatchToProps)(LoginScreen);
