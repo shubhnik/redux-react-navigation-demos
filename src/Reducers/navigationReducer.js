@@ -129,11 +129,6 @@ const navigationReducer = (state = initialState, action) => {
       break;
 
     default:
-      console.log(
-        `*****DefaultSTate${JSON.stringify(
-          AppNavigator.router.getStateForAction(action, state.stateForLoggedIn)
-        )}`
-      );
       nextState = {
         ...state,
         stateForLoggedIn: AppNavigator.router.getStateForAction(
