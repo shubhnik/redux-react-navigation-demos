@@ -33,27 +33,25 @@ const navigationReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case Login:
-      nextState = {
+      return {
         ...state,
         stateForLoggedIn: AppNavigator.router.getStateForAction(
           ActionForLoggedIn,
           stateForLoggedOut
         )
       };
-      break;
 
     case Register:
-      nextState = {
+      return {
         ...state,
         stateForLoggedOut: AppNavigator.router.getStateForAction(
           AppNavigator.router.getActionForPathAndParams("signup"),
           stateForLoggedOut
         )
       };
-      break;
 
     case RegisterSuccess:
-      nextState = {
+      return {
         ...state,
         stateForLoggedIn: AppNavigator.router.getStateForAction(
           NavigationActions.reset({
@@ -66,7 +64,6 @@ const navigationReducer = (state = initialState, action) => {
           })
         )
       };
-      break;
 
     /* Another option for RegisterSuccess
         nextState = {
@@ -82,17 +79,16 @@ const navigationReducer = (state = initialState, action) => {
       */
 
     case "Navigation/BACK":
-      nextState = {
+      return {
         ...state,
         stateForLoggedOut: AppNavigator.router.getStateForAction(
           NavigationActions.back(),
           stateForLoggedOut
         )
       };
-      break;
 
     case Logout:
-      nextState = {
+      return {
         ...state,
         stateForLoggedOut: AppNavigator.router.getStateForAction(
           NavigationActions.reset({
@@ -101,7 +97,6 @@ const navigationReducer = (state = initialState, action) => {
           })
         )
       };
-      break;
 
     /* Other logic for logging out, more cleaner but unlike the above isn't telling the reader 
            that navigation is reset, that's why I chose the *reset* one for the article. I prefer
@@ -113,7 +108,7 @@ const navigationReducer = (state = initialState, action) => {
     */
 
     case NavigateToLogoutScreen:
-      stateForLogoutScreen = {
+      return {
         ...state,
         stateForLoggedIn: {
           ...state.stateForLoggedIn,
@@ -125,20 +120,16 @@ const navigationReducer = (state = initialState, action) => {
           )
         }
       };
-      nextState = { ...stateForLogoutScreen };
-      break;
 
     default:
-      nextState = {
+      return {
         ...state,
         stateForLoggedIn: AppNavigator.router.getStateForAction(
           action,
           state.stateForLoggedIn
         )
       };
-      break;
   }
-  return nextState || state;
 };
 
 export default navigationReducer;
