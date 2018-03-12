@@ -17,7 +17,7 @@ class LogoutScreen extends Component {
           alignItems: "center"
         }}
       >
-        <Text>{this.props.navigation.state.params.name}</Text>
+        <Text>{'Test'}</Text>
         <TouchableOpacity
           onPress={this.props.logout}
           style={styles.touchableStyles}

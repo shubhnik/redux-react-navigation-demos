@@ -2,10 +2,18 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import { login } from "../Actions/actionCreator";
+import { NavigationActions } from "react-navigation";
 
 class LoginScreen extends Component {
   static navigationOptions = {
     title: "Login"
+  };
+  navigate = () => {
+    const navigateToRegister = NavigationActions.navigate({
+      routeName: "screen1"
+
+    });
+    this.props.navigation.dispatch(navigateToRegister);
   };
   render() {
     return (
@@ -26,6 +34,12 @@ class LoginScreen extends Component {
           style={styles.touchableStyles}
         >
           <Text style={{ color: "white", fontSize: 22 }}>Login</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={this.navigate}
+          style={styles.touchableStyles}
+        >
+          <Text style={{ color: "white", fontSize: 22 }}>Register</Text>
         </TouchableOpacity>
       </View>
     );

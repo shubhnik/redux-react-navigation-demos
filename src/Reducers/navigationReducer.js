@@ -1,21 +1,21 @@
 import { NavigationActions } from "react-navigation";
 
-import AppNavigator from "../Navigation/navigationStack";
+import AppNavigator, {Tabs} from "../Navigation/navigationStack";
 import { Login, Logout } from "../Actions/actionTypes";
 
 const ActionForLoggedOut = AppNavigator.router.getActionForPathAndParams(
   "login"
 );
 
-const ActionForLoggedIn = AppNavigator.router.getActionForPathAndParams(
-  "screen1"
+const ActionForLoggedIn = Tabs.router.getActionForPathAndParams(
+  "feed"
 );
 
 const stateForLoggedOut = AppNavigator.router.getStateForAction(
   ActionForLoggedOut
 );
 
-const stateForLoggedIn = AppNavigator.router.getStateForAction(
+const stateForLoggedIn = Tabs.router.getStateForAction(
   ActionForLoggedIn
 );
 
@@ -52,10 +52,10 @@ const navigationReducer = (state = initialState, action) => {
         )
       };
 
-    /* Other logic for logging out, more cleaner but unlike the above isn't telling the reader 
+    /* Other logic for logging out, more cleaner but unlike the above isn't telling the reader
            that navigation is reset, that's why I chose the *reset* one for the article. I prefer
            this one, what about you?
-        
+
         case 'LOGOUT':
             nextState = { ...state, initialStateForLoggedIn, initialStateForLoggedOut}
             break;
